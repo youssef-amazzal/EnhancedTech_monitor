@@ -1,30 +1,70 @@
 <script setup>
-import { useTheme } from "../composables/Theme";
-const { toggleTheme } = useTheme();
+import { useI18n } from 'vue-i18n'
+import {ref} from "vue";
+import {useSettingsStore} from "../stores/SettingsStore";
+
+const { t } = useI18n();
+const {theme, lang } = useSettingsStore();
+
+const items = ref([
+  {
+    label: 'titleBar.Home',
+    icon: 'pi pi-fw pi-home',
+    to: '/',
+  },
+  {
+    label: 'titleBar.Profile',
+    icon: 'pi pi-fw pi-user',
+    to: '/profile',
+  },
+  {
+    label: 'titleBar.Settings',
+    icon: 'pi pi-fw pi-cog',
+    to: '/settings',
+  }
+]);
+
 </script>
 
 <template>
-  <Card style="width: 25em">
-    <template #title> Advanced Card </template>
-    <template #subtitle> Card subtitle </template>
-    <template #content>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sed consequuntur error repudiandae numquam deserunt quisquam repellat libero asperiores earum nam nobis, culpa ratione quam perferendis esse, cupiditate neque
-        quas!
-      </p>
+  <Toolbar>
+    <template #start>
+      <img
+        src="@/assets/logo.svg"
+        class="h-2rem"
+      >
     </template>
-    <template #footer>
-      <Button icon="pi pi-check" label="Save" />
+
+    <template #center>
+      <tab-menu :model="items">
+        <template #item="slotProps">
+          <router-link :to="slotProps.item.to">
+            <i :class="slotProps.item.icon" />
+            <span>{{ t(slotProps.item.label) }}</span>
+          </router-link>
+        </template>
+      </tab-menu>
+    </template>
+
+    <template #end>
       <Button
-        label="Cancel"
-        severity="secondary"
         icon="pi pi-times"
-        style="margin-left: 0.5em"
-        @click="toggleTheme"
-      />
+        severity="danger"
+        @click="theme.toggle()"
+      >
+        {{ theme.current }}
+      </Button>
+      <Button
+        icon="pi pi-times"
+        severity="danger"
+        @click="lang.toggle()"
+      >
+        {{ lang.current }}
+      </Button>
     </template>
-  </Card>
+  </Toolbar>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
+
 </style>

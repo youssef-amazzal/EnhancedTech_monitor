@@ -16,11 +16,12 @@ module.exports = {
   },
   extends: [
     'plugin:vue/vue3-recommended',
-    'eslint:recommended'
+    'eslint:recommended',
+    './.eslintrc-auto-import.json',
     // '@vue/eslint-config-prettier'
   ],
   rules: {
     'vue/require-default-prop': 'off',
-    'vue/multi-word-component-names': 'off'
+    'vue/multi-word-component-names': 'off',
   }
 }

@@ -1,9 +1,11 @@
 <script setup>
+
 </script>
 
 <template>
-  <router-view />
+  <h1>Settings</h1>
 </template>
 
-<style lang="scss">
+<style scoped>
+
 </style>

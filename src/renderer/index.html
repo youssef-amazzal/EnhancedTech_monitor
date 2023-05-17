@@ -6,12 +6,12 @@
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"
+      content="default-src 'self' https://api.iconify.design https://api.unisvg.com; script-src 'self'; style-src 'self' 'unsafe-inline'"
     />
-    <link id="theme-link" rel="stylesheet" href="src/assets/css/viva-dark/theme.css" />
+    <link id="theme-link" rel="stylesheet" href="src/assets/css/viva-light/theme.css" />
   </head>
 
-  <body>
+  <body class="m-0">
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
   </body>
