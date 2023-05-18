@@ -5,5 +5,9 @@
   <router-view />
 </template>
 
-<style lang="scss">
+<style>
+/* override PrimeVue styles */
+.p-card-body {
+  padding: 0 !important;
+}
 </style>

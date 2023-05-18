@@ -29,7 +29,6 @@ export default defineConfig({
         include: resolve(__dirname, './src/renderer/src/locales/**'),
       }),
       Components({
-        dirs: ['./src/renderer/src/components', './src/renderer/src/layouts', './src/renderer/src/views'],
         resolvers: [
           PrimeVueResolver(),
           IconsResolver({
@@ -44,7 +43,7 @@ export default defineConfig({
         compiler: 'vue3',
       }),
       AutoImport({
-        dirs: ['./src/renderer/src/composables', './src/renderer/src/locales', './src/renderer/src/routers', './src/renderer/src/stores'],
+        // dirs: ['./src/renderer/src/composables', './src/renderer/src/locales', './src/renderer/src/routers', './src/renderer/src/stores'],
         imports: [
           'vue',
           'vue-router',

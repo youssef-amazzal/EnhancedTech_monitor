@@ -3,5 +3,23 @@
     "Home": "Accueil",
     "Profile": "Profil",
     "Settings": "Paramètres"
+  },
+
+  "profile": {
+
+    "info": {
+      "title": "Détails de l'employé",
+      "service": {
+        "label": "Service",
+        "value": "Contrôle"
+      },
+      "phoneNumber": "Numéro de téléphone",
+      "email": "Email"
+    },
+
+    "stats": {
+      "title": "Statistiques"
+    }
+
   }
 }

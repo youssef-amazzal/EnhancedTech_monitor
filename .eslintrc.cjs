@@ -17,7 +17,7 @@ module.exports = {
   extends: [
     'plugin:vue/vue3-recommended',
     'eslint:recommended',
-    './.eslintrc-auto-import.json',
+    // './.eslintrc-auto-import.json',
     // '@vue/eslint-config-prettier'
   ],
   rules: {

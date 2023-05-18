@@ -2,3 +2,19 @@
 @import 'primevue/resources/primevue.min.css';
 @import 'primeflex/primeflex.scss';
 @import 'primeicons/primeicons.css';
+
+.transparent {
+  @include styleclass('bg-transparent border-none shadow-none')
+}
+
+h1 {
+  @include styleclass('lg:text-5xl md:text-4xl sm:text-3xl text-2xl font-bold')
+}
+
+h2 {
+  @include styleclass('lg:text-4xl md:text-3xl sm:text-2xl text-xl font-bold')
+}
+
+h3 {
+  @include styleclass('lg:text-lg text-base')
+}
