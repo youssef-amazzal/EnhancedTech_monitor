@@ -1,25 +1,117 @@
 {
-  "titleBar": {
-    "Home": "Home",
-    "Profile": "Profile",
-    "Settings": "Settings"
+  "home": {
+    "actions": {
+      "controle_duplicate": "Duplicate",
+      "controle_missing": "Missing",
+      "controle_ok": "Done",
+      "controle_unclear": "Unclear",
+      "operation_ok": "Done",
+      "scan_ok": "To-Do"
+    },
+    "docs": {
+      "added": "Added",
+      "checked": "Checked",
+      "sequence": "No.",
+      "status": "Status",
+      "title": "Title"
+    },
+    "task": {
+      "Added": "Added",
+      "office": "Office {office}",
+      "status": {
+        "archived": "Archived",
+        "deleted": "Will be deleted",
+        "done": "Done",
+        "in_progress": "In-Progress",
+        "pending": "Pending",
+        "review": "Review",
+        "to_do": "To-Do"
+      },
+      "titleTemplate": "{type} {year} - Part {sequence}"
+    },
+    "title": "Home",
+    "types": {
+      "DE": "Death certificate | Death certificates",
+      "ET": "Foreigner | Foreigners",
+      "JM": "Judgement | Judgements",
+      "MA": "Marriage certificate | Marriage certificates",
+      "NA": "Birth certificate | Birth certificates",
+      "TR": "Birth transfer | Birth transfers"
+    }
   },
-
   "profile": {
-
     "info": {
-      "title": "Employee Details",
+      "email": "Email",
+      "phoneNumber": "Phone Number",
       "service": {
         "label": "Service",
         "value": "Control"
       },
-      "phoneNumber": "Phone Number",
-      "email": "Email"
+      "title": "Employee Details"
     },
-
     "stats": {
       "title": "Stats"
     }
-
+  },
+  "settings": {
+    "language": {
+      "description": "Select a language for the application",
+      "en": "English",
+      "fr": "French",
+      "title": "Language"
+    },
+    "notifications": {
+      "description": "Choose the notifications you want to receive",
+      "title": "Notifications"
+    },
+    "shortcuts": {
+      "close": {
+        "description": "Close the image viewer",
+        "title": "Close"
+      },
+      "delete": {
+        "description": "Delete the image",
+        "title": "Delete"
+      },
+      "description": "Customize the hotkeys you want to use",
+      "duplicate": {
+        "description": "Mark the image as duplicate",
+        "title": "Duplicate"
+      },
+      "next": {
+        "description": "Go to the next image",
+        "title": "Next"
+      },
+      "previous": {
+        "description": "Go to the previous image",
+        "title": "Previous"
+      },
+      "save": {
+        "description": "Save the image",
+        "title": "Save"
+      },
+      "title": "Keyboard Hotkeys",
+      "unclear": {
+        "description": "Mark the image as unclear",
+        "title": "Unclear"
+      },
+      "verify": {
+        "description": "Mark the image as verified",
+        "title": "Verify"
+      }
+    },
+    "theme": {
+      "dark": "Dark",
+      "description": "Select a theme for the application",
+      "light": "Light",
+      "system": "System",
+      "title": "Theme"
+    },
+    "title": "Settings"
+  },
+  "titleBar": {
+    "Home": "Home",
+    "Profile": "Profile",
+    "Settings": "Settings"
   }
 }

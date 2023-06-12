@@ -1,0 +1,105 @@
+/*
+  '@' : primary key
+  '#' : foreign key
+
+
+-- tasks(@id, deadline, started_at, finished_at, #id_employee, #id_part, is_completed, created_at, #id_coordinator)
+-- tasks(bigint, timestamp with time zone, timestamp with time zone, timestamp with time zone, uuid, bigint, boolean, timestamp with time zone)
+
+-- permissions(@id, name)
+-- permissions(bigint, character varying)
+
+-- cities(@id, name, region)
+-- cities(smallint, text, text)
+
+-- offices(@id, office_num, address, #id_city, phone)
+-- offices(bigint, text, text, smallint, text)
+
+-- types(@id, name, abbrev)
+-- types(smallint, text, text)
+-- abbrev: 'NA', 'DE', 'JM', 'TR', 'MA', 'ET'
+
+-- folders(@id, name, year, #id_office, #id_type, pages_num)
+-- folders(bigint, text, integer, bigint, smallint, integer)
+
+-- parts(@id, name, sequence, first_page, last_page, #id_folder)
+-- parts(bigint, character varying, integer, integer, integer, bigint)
+
+-- documents(@id, name, #id_part, sequence)
+-- documents(bigint, character varying, bigint, integer)
+
+-- pages(@id, created_at, name, image_path, content, page_num, #id_document)
+-- pages(bigint, timestamp with time zone, text, text, jsonb, smallint, bigint)
+
+-- employees(@id, first_name, last_name, created_at, service)
+-- employees(uuid, character varying, character varying, timestamp with time zone, text)
+-- service: 'coordination', 'scan', 'controle', 'operation'
+
+-- activities(@id, type, comment, #id_employee, #id_part, #id_page)
+-- activities(bigint, character varying, character varying, uuid, bigint, bigint)
+
+ Activities types:
+  SCAN:
+    - 'scan_ok'
+ CONTROLE:
+    - 'controle_ok'
+    - 'controle_unclear'
+    - 'controle_missing'
+    - 'controle_duplicate'
+  OPERATION:
+    - 'operation_ok'
+
+*/
+
+{
+  "id": "",
+  "deadline": "",
+  "started_at": "",
+  "finished_at": "",
+  "is_completed": "",
+  "part": {
+    "id": "",
+    "name": "",
+    "sequence": "",
+    "first_page": "",
+    "last_page": "",
+    "id_folder": "",
+    "folder": {
+      "id": "",
+      "name": "",
+      "year": "",
+      "pages_num": "",
+      "type": {
+        "id": "",
+        "name": "",
+        "abbrev": ""
+      },
+      "office": {
+        "id": "",
+        "office_num": "",
+        "address": "",
+        "phone": "",
+        "city": {
+          "id": "",
+          "name": "",
+          "region": ""
+        }
+      }
+    }
+  },
+  "employee": {
+    "id": "",
+    "first_name": "",
+    "last_name": "",
+    "service": ""
+  },
+  "coordinator": {
+    "id": "",
+    "first_name": "",
+    "last_name": "",
+    "service": ""
+  },
+  "created_at": "",
+  "documents_number": "",
+  "completed_number": "",
+}

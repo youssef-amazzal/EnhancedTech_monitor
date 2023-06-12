@@ -1,8 +1,10 @@
-import { app, shell, BrowserWindow } from 'electron'
-import { join } from 'path'
-import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import {app, shell, BrowserWindow, session} from 'electron'
+import {join} from 'path'
+import {electronApp, optimizer, is} from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 import {storeListener} from "./Listeners/storeListener";
+import {cleanUpListener} from "./Listeners/cleanUpListener";
+import {themeListener} from "./Listeners/themeListener";
 
 function createWindow() {
   // Create the browser window.
@@ -11,7 +13,7 @@ function createWindow() {
     height: 670,
     show: false,
     autoHideMenuBar: true,
-    ...(process.platform === 'linux' ? { icon } : {}),
+    ...(process.platform === 'linux' ? {icon} : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
       sandbox: false
@@ -24,7 +26,7 @@ function createWindow() {
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url)
-    return { action: 'deny' }
+    return {action: 'deny'}
   })
 
   // HMR for renderer base on electron-vite cli.
@@ -57,6 +59,9 @@ app.whenReady().then(() => {
     // dock icon is clicked and there are no other windows open.
     if (BrowserWindow.getAllWindows().length === 0) createWindow()
   })
+
+  // Clean up
+  cleanUpListener().listen();
 })
 
 // Quit when all windows are closed, except on macOS. There, it's common
@@ -73,3 +78,5 @@ app.on('window-all-closed', () => {
 
 
 storeListener().listen();
+themeListener().listen();
+

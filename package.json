@@ -20,7 +20,10 @@
     "@electron-toolkit/preload": "^1.0.3",
     "@electron-toolkit/utils": "^1.0.2",
     "@intlify/unplugin-vue-i18n": "^0.10.0",
+    "@supabase/supabase-js": "^2.24.0",
+    "@vueuse/components": "^10.1.2",
     "@vueuse/core": "^10.1.2",
+    "date-fns": "^2.30.0",
     "electron-store": "^8.1.0",
     "electron-updater": "^5.3.0",
     "pinia": "^2.0.36",
@@ -49,6 +52,6 @@
     "unplugin-vue-components": "^0.24.1",
     "vite": "^4.2.1",
     "vitest": "^0.31.0",
-    "vue": "^3.2.47"
+    "vue": "^3.3.4"
   }
 }

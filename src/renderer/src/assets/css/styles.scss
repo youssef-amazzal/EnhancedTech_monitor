@@ -16,5 +16,14 @@ h2 {
 }
 
 h3 {
-  @include styleclass('lg:text-lg text-base')
+  @include styleclass('lg:text-lg text-base font-semibold')
+}
+
+* {
+  font-family: var(--font-family);
+}
+
+.p-paginator {
+  border: none !important;
+  @include styleclass('border-noround-top border-round-bottom')
 }

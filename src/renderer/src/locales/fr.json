@@ -1,25 +1,115 @@
 {
-  "titleBar": {
-    "Home": "Accueil",
-    "Profile": "Profil",
-    "Settings": "Paramètres"
+  "home": {
+    "actions": {
+      "controle_duplicate": "Dupliqué",
+      "controle_missing": "Manquant",
+      "controle_ok": "Terminé",
+      "controle_unclear": "Pas clair",
+      "operation_ok": "Terminé",
+      "scan_ok": "À faire"
+    },
+    "docs": {
+      "added": "Ajouté",
+      "checked": "Vérifié",
+      "sequence": "No.",
+      "status": "Statut",
+      "title": "Titre"
+    },
+    "task": {
+      "office": "Bureau {office}",
+      "status": {
+        "archived": "Archivé",
+        "deleted": "Sera supprimé",
+        "done": "Terminé",
+        "in_progress": "En cours",
+        "pending": "En attente",
+        "review": "Révision",
+        "to_do": "À faire"
+      },
+      "titleTemplate": "{type} {year} - Partie {sequence}"
+    },
+    "types": {
+      "DE": "Acte de décès | Actes de décès",
+      "ET": "Étranger | Étrangers",
+      "JM": "Jugement | Jugements",
+      "MA": "Acte de mariage | Actes de mariage",
+      "NA": "Acte de naissance | Actes de naissance",
+      "TR": "Transfert de naissance | Transferts de naissance"
+    }
   },
-
   "profile": {
-
     "info": {
-      "title": "Détails de l'employé",
+      "email": "Email",
+      "phoneNumber": "Numéro de téléphone",
       "service": {
         "label": "Service",
         "value": "Contrôle"
       },
-      "phoneNumber": "Numéro de téléphone",
-      "email": "Email"
+      "title": "Détails de l'employé"
     },
-
     "stats": {
       "title": "Statistiques"
     }
-
+  },
+  "settings": {
+    "language": {
+      "description": "Choisissez une langue pour l'application",
+      "en": "Anglais",
+      "fr": "Français",
+      "title": "Langue"
+    },
+    "notifications": {
+      "description": "Choisissez les notifications que vous souhaitez recevoir",
+      "title": "Notifications"
+    },
+    "shortcuts": {
+      "close": {
+        "description": "Fermer la fenêtre",
+        "title": "Fermer"
+      },
+      "delete": {
+        "description": "Supprimer l'image",
+        "title": "Supprimer"
+      },
+      "description": "Personnalisez les raccourcis clavier que vous souhaitez utiliser",
+      "duplicate": {
+        "description": "Marquer l'image comme dupliquée",
+        "title": "Dupliquer"
+      },
+      "next": {
+        "description": "Passer à l'image suivante",
+        "title": "Suivant"
+      },
+      "previous": {
+        "description": "Passer à l'image précédente",
+        "title": "Précédent"
+      },
+      "save": {
+        "description": "Sauvegarder les modifications",
+        "title": "Sauvegarder"
+      },
+      "title": "Raccourcis Clavier",
+      "unclear": {
+        "description": "Marquer l'image comme pas clair",
+        "title": "Pas clair"
+      },
+      "verify": {
+        "description": "Marquer l'image comme vérifiée",
+        "title": "Vérifier"
+      }
+    },
+    "theme": {
+      "dark": "Sombre",
+      "description": "Choisissez un thème pour l'application",
+      "light": "Clair",
+      "system": "Système",
+      "title": "Thème"
+    },
+    "title": "Paramètres"
+  },
+  "titleBar": {
+    "Home": "Accueil",
+    "Profile": "Profil",
+    "Settings": "Paramètres"
   }
 }

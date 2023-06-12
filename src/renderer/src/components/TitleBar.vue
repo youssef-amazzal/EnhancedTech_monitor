@@ -2,10 +2,19 @@
 import {useI18n} from 'vue-i18n'
 import {ref} from 'vue'
 import {useAppStore} from '../stores/AppStore'
-import IconClose from '~icons/fluent-mdl2/chrome-close'
-import IconRestore from '~icons/fluent-mdl2/chrome-restore'
-import IconMinimize from '~icons/fluent-mdl2/chrome-minimize'
 import {useSettingsStore} from '../stores/SettingsStore'
+
+
+const {hideTabs, hideLogo} = defineProps({
+  hideTabs: {
+    type: Boolean,
+    default: false
+  },
+  hideLogo: {
+    type: Boolean,
+    default: false
+  }
+})
 
 const {t} = useI18n()
 
@@ -17,7 +26,7 @@ const items = ref([
     id: view.available.Home,
     label: 'titleBar.Home',
     icon: 'pi pi-fw pi-home',
-    to: '/'
+    to: '/home'
   },
   {
     id: view.available.Profile,
@@ -33,55 +42,66 @@ const items = ref([
   }
 ])
 
-const buttons = [
-  {
-    id: 0,
-    icon: IconMinimize,
-    class: 'hover:bg-green-500',
-    click: () => {
-      lang.toggle()
-    }
-  },
-  {
-    id: 1,
-    icon: IconRestore,
-    class: 'hover:bg-yellow-500',
-    click: () => {
-      theme.toggle()
-    }
-  },
-  {
-    id: 2,
-    icon: IconClose,
-    class: 'hover:bg-red-500',
-    click: () => {
-      console.log('close')
-    }
-  }
-]
+// const buttons = [
+//   {
+//     id: 0,
+//     icon: IconMinimize,
+//     class: 'hover:bg-green-500',
+//     click: () => {
+//       lang.toggle()
+//     }
+//   },
+//   {
+//     id: 1,
+//     icon: IconRestore,
+//     class: 'hover:bg-yellow-500',
+//     click: () => {
+//       theme.toggle()
+//     }
+//   },
+//   {
+//     id: 2,
+//     icon: IconClose,
+//     class: 'hover:bg-red-500',
+//     click: () => {
+//       console.log('close')
+//     }
+//   }
+// ]
+
 </script>
 
 <template>
   <Toolbar class="bg-transparent border-none align-items-start">
     <template #start>
       <img
-        src="@/assets/logo.svg"
-        class="h-2rem"
+        v-if="!hideLogo"
+        :src="theme.logo"
+        class="m-2"
+        style="height: 2.3rem"
       >
     </template>
 
     <template #center>
-      <div class="flex">
+      <div
+        v-if="!hideTabs"
+        class="flex"
+      >
         <router-link
           v-for="item in items"
           :key="item.label"
-          class="py-2 px-4 m-2 text-color no-underline hover:bg-gray-200 hover:text-900 focus:bg-blue-200 focus:text-900"
-          :class="{ 'bg-blue-200 text-900': view.current === item.id }"
+          class="py-2 px-4 m-2 text-color no-underline hover:text-900 focus:bg-primary border-round"
+          :class="{ 'bg-primary': view.current === item.id }"
           :to="item.to"
           @click="view.set(item.id)"
         >
-          <i :class="item.icon" />
-          <span class="p-button-label">{{ t(item.label) }}</span>
+          <i
+            :class="[item.icon, { 'text-white': view.current === item.id }]"
+          />
+          <span
+            class="p-button-label"
+            :class="{ 'text-white': view.current === item.id }"
+          >{{ t(item.label) }}</span>
         </router-link>
       </div>
     </template>

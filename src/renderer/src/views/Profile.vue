@@ -1,8 +1,10 @@
 <script setup>
 import {useI18n} from 'vue-i18n'
 import {computed, ref} from 'vue'
+import {useAuth} from "../composables/useAuth";
 
 const {t} = useI18n()
+const {signout} = useAuth()
 
 const information = [
   {
@@ -29,23 +31,38 @@ const information = [
   >
     <!--      Employee's Information      -->
     <Card
-      class="shadow-none p-5"
+      class="shadow-none p-5 border-2 surface-border"
     >
       <template #header>
-        <h1 class="m-0 mb-2 text-color">
-          {{ t('profile.info.title') }}
-        </h1>
+        <div class="flex justify-content-between">
+          <h1 class="m-0 mb-4 text-color uppercase font-semibold">
+            {{ t('profile.info.title') }}
+          </h1>
+          <Button
+            label="Logout"
+            icon="pi pi-sign-out"
+            class="h-fit"
+            severity="danger"
+            text
+            @click="signout"
+          />
+        </div>
       </template>
 
       <template #content>
-        <div class="grid grid-nogutter">
+        <div class="grid grid-nogutter max-h-10rem">
           <!--      Employee's Profile Picture       -->
-          <div class="pfp-container col-2">
-            <fa-solid-user-circle class="w-full h-full text-color" />
+          <div class="pfp-container col-fixed w-fit">
+            <Button
+              icon-class="text-4xl"
+              icon="pi pi-user"
+              style="min-width: 7rem; min-height: 7rem;"
+              rounded
+            />
           </div>
 
           <!--      Employee's Details       -->
-          <div class="flex flex-column justify-content-between col-10 pl-5">
+          <div class="flex flex-column justify-content-between pl-3">
             <h2 class="text-3xl lg:text-4xl m-0 text-color font-semibold">
               Youssef Amazzal
             </h2>
@@ -68,7 +85,7 @@ const information = [
     </Card>
 
     <!--      Employee's Statistics      -->
-    <Card class="shadow-none p-5">
+    <Card class="shadow-none p-5 border-2 surface-border">
       <template #header>
         <h1 class="text-4xl m-0 mb-2 text-color">
           {{ t('profile.stats.title') }}
@@ -81,5 +98,13 @@ const information = [
 </template>
 
 <style scoped>
+:deep(.p-avatar) {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+}
 
+:deep(.p-avatar-icon) {
+  font-size: 3rem;
+}
 </style>

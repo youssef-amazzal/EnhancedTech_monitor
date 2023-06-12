@@ -2,31 +2,31 @@
 import TitleBar from "../components/TitleBar.vue";
 import {ref} from 'vue'
 import {useElementBounding} from '@vueuse/core'
+import {useAppStore} from "../stores/AppStore";
 
 const el = ref(null)
-const {height} = useElementBounding(el)
+const {height} = useElementBounding(el);
+const {ui} = useAppStore();
 </script>
 
 <template>
-  <div class="container grid grid-nogutter surface-ground h-screen justify-content-center">
+  <div
+    class="flex flex-column surface-ground h-screen justify-content-start align-items-center min-h-screen pb-5"
+  >
     <TitleBar
       ref="el"
-      class="col-12 "
+      class="col-12 h-3rem"
     />
-    <ScrollPanel
+    <router-view
       style="width: 100%;"
-      :style="`height: calc(100% - ${ height }px)`"
-      class="custombar1 content-container"
-    >
-      <router-view
-        class="h-full pt-5 px-8 sm:align-self-center"
-      />
-    </ScrollPanel>
+      :style="`min-height: calc(100% - ${ height }px)`"
+      class="content-container pt-5 px-8"
+    />
   </div>
 </template>
 
 <style>
 .content-container {
-  max-width: 1100px;
+  max-width: 1200px;
 }
 </style>
