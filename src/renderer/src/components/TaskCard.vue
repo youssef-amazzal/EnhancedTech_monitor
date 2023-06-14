@@ -52,8 +52,8 @@ const toTask = () => {
   >
     <template #header>
       <div class="flex justify-content-between align-items-center">
-        <Tag :class="STATUS[task.status].class">
-          {{ STATUS[task.status].text.value }}
+        <Tag :class="STATUS[task.status]?.class">
+          {{ STATUS[task.status]?.text.value }}
         </Tag>
         <Button
           class="p-1 max-w-fit border-circle bg-transparent hover:bg-gray-100 border-none "

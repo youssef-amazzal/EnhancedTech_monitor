@@ -1,6 +1,6 @@
 import {LocalStore} from "../../assets/js/Local";
 import {supabase} from "../../assets/js/Supabase";
-import {useArrayFilter, useArrayMap, useAsyncState, watchDeep, watchImmediate, whenever} from "@vueuse/core";
+import {useArrayFilter, useArrayMap, useAsyncState, watchDeep, whenever} from "@vueuse/core";
 import {computed, ref, watch} from "vue";
 import {useAppStore} from "../../stores/AppStore";
 
@@ -110,7 +110,9 @@ export const useDocs = () => {
     });
 
     whenever(() => isReady_1.value && isReady_2.value, () => {
+      console.log('isReady_1.value && isReady_2.value', isReady_1.value, isReady_2.value);
       if (!state_1.value.error && !state_2.value.error) {
+        console.log('delete', `documents.${task.part.name}`);
         LocalStore.delete(`documents.${task.part.name}`);
       }
     })

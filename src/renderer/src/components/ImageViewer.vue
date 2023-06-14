@@ -73,7 +73,7 @@ watch(activePage, (newVal) => {
           </template>
           <template #preview="preview = slotProps">
             <img
-              :src="slotProps.item.image_path"
+              :src="getPath(slotProps.item.image_path)"
               :style="preview.style"
               style="max-width: calc(100vw * 0.75); max-height: calc(100vh * 0.90)"
             >

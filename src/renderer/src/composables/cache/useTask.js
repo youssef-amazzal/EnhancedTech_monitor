@@ -32,7 +32,7 @@ export const useTasks = () => {
     await until(isReady).toBe(true);
 
     const unModifiedTasks = useArrayDifference(remoteTasks, localTasks, (a, b) => a.id === b.id);
-    tasks.value = localTasks.value.concat(unModifiedTasks.value).sort((a, b) => b.created_at - a.created_at);
+    tasks.value = localTasks.value.concat(unModifiedTasks.value).sort((a, b) => b.id - a.id);
 
     return tasks;
   }
