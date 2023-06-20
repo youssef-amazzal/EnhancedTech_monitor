@@ -1,25 +1,45 @@
 <script setup>
-import {defineProps, defineModel, ref, watch} from 'vue';
+import {computed, defineProps, ref, watch} from 'vue';
 import {ACTIONS} from "../assets/js/Enums";
 import {useImage, whenever} from "@vueuse/core";
 import {useAppStore} from "../stores/AppStore";
 import {storeToRefs} from "pinia";
 
-const {pages} = defineProps({
+const props = defineProps({
   pages: {
     type: Array,
     required: true,
-  }
+  },
+  visible: {
+    type: Boolean,
+    default: false,
+  },
+  activeIndex: {
+    type: Number,
+    default: 0,
+  },
 });
 
-const visible = defineModel('visible', {
-  type: Boolean,
-  default: false,
-});
-const activeIndex = defineModel('activeIndex', {
-  type: Number,
-  default: 0,
-});
+const emit = defineEmits(['update:visible', 'update:activeIndex'])
+
+// Create a computed property to simplify two-way binding
+const visible = computed({
+  get() {
+    return props.visible
+  },
+  set(value) {
+    emit('update:visible', value)
+  }
+})
+
+const activeIndex = computed({
+  get() {
+    return props.activeIndex
+  },
+  set(value) {
+    emit('update:activeIndex', value)
+  }
+})
 
 
 // workarounds for image paths
@@ -39,7 +59,7 @@ const loadImage = (imagePath) => {
 
 const {activeIndex: activePage} = storeToRefs(useAppStore());
 watch(activePage, (newVal) => {
-  loadImage(pages[newVal].image_path);
+  loadImage(props.pages[newVal].image_path);
 })
 
 </script>
@@ -48,7 +68,7 @@ watch(activePage, (newVal) => {
   <Galleria
     v-model:visible="visible"
     v-model:activeIndex="activeIndex"
-    :value="pages"
+    :value="props.pages"
     :full-screen="true"
     :show-item-navigators="true"
     :show-thumbnails="false"
@@ -95,7 +115,7 @@ watch(activePage, (newVal) => {
           </tag>
         </div>
         <div>
-          {{ `${activePage + 1}/${pages.length}` }}
+          {{ `${activePage + 1}/${props.pages.length}` }}
         </div>
       </div>
     </template>

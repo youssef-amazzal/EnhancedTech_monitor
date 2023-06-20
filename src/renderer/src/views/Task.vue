@@ -2,7 +2,7 @@
 import {useRouter} from "vue-router";
 import {computed, ref} from "vue";
 import {useI18n} from "vue-i18n";
-import {until, useElementBounding, whenever} from "@vueuse/core";
+import {useElementBounding, whenever} from "@vueuse/core";
 import {useAppStore} from "../stores/AppStore";
 import {useDocs} from "../composables/cache/useDocs";
 import {HEADERS, STATUS} from "../assets/js/Enums";

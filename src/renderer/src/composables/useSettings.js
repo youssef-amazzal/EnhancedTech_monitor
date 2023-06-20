@@ -5,6 +5,9 @@ import {i18n} from "../assets/js/i18n";
 import {useSettingsStore} from "../stores/SettingsStore";
 import {onKeyDown, useMagicKeys, whenever} from "@vueuse/core";
 import {LocalStore} from "../assets/js/Local";
+import SystemePic from "../assets/images/system_theme.png"
+import DarkPic from "../assets/images/dark_theme.png"
+import LightPic from "../assets/images/light_theme.png"
 
 
 const t = i18n.global.t
@@ -22,19 +25,19 @@ export const useSettings = () => {
       id: 1,
       key: 'system',
       label: computed(() => t('settings.theme.system')),
-      image: '/src/assets/images/system_theme.png',
+      image: SystemePic,
     },
     {
       id: 1,
       key: 'dark',
       label: computed(() => t('settings.theme.dark')),
-      image: '/src/assets/images/dark_theme.png',
+      image: DarkPic,
     },
     {
       id: 2,
       key: 'light',
       label: computed(() => t('settings.theme.light')),
-      image: './src/assets/images/light_theme.png',
+      image: LightPic,
     }
   ]
 
