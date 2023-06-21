@@ -38,6 +38,7 @@ export const useDocs = () => {
 
   whenever(isReady, () => {
     remoteDocuments.value = state.value.data
+    console.log('remoteDocuments', remoteDocuments.value)
   })
 
   whenever(

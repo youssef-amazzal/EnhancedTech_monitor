@@ -25,6 +25,7 @@ export const useTasks = () => {
 
   whenever(isReady, () => {
     remoteTasks.value = state.value.data;
+    console.log('remoteTasks', remoteTasks.value)
   });
   const getTasks = async () => {
     const tasks = ref([]);

@@ -23,7 +23,7 @@ export const LocalStore = {
   },
   onDidChange: (key, callback) => {
     const user = getFromStore('user');
-    const unsubscribe = store.onDidChange(`${user.id}.${key}`, callback);
+    const unsubscribe = user ? store.onDidChange(`${user.id}.${key}`, callback) : store.onDidChange(`public.${key}`, callback);
     return unsubscribe;
   },
   onDidAnyChange: (callback) => {
